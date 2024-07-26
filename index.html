@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scholar calculator</title>
+
+</head>
+
+<body>
+
+
+
+    <div class="container">
+
+        <div class="form">
+   <form>
+    <h2 class="hh"> SCHOLAR <br> 
+     Solutions Here <i class="fa-solid fa-arrow-down"></i> </h2>
+    <label for="Question">Question</label> <br>
+    <input type="text" id="Question"> <br>
+    <label for="Solution">Answer</label> <br>
+    <input type="text" id="Solution"> <br> <br>
+    <textarea name="Write Solution" id="Write Solution" cols="30" rows="10">Write Solution</textarea>
+   </form>
+        </div>
+
+        <div class="calculator">
+            <input type="text" placeholder="0" id="outputscreen">
+            <button onclick="clearScreen()" class="hmm">cl</button>
+            <button onclick="del()">del</button>
+            <button onclick="display('%')">%</button>
+            <button onclick="display('/')">&#247</button>
+            <button onclick="display('7')" class="hmm">7</button>
+            <button onclick="display('8')">8</button>
+            <button onclick="display('9')">9</button>
+            <button onclick="display('*')">&#215</button>
+            <button onclick="display('4')" class="hmm">4</button>
+            <button onclick="display('5')">5</button>
+            <button onclick="display('6')">6</button>
+            <button onclick="display('-')">-</button>
+            <button onclick="display('1')" class="hmm">1</button>
+            <button onclick="display('2')">2</button>
+            <button onclick="display('3')">3</button>
+            <button onclick="display('+')">+</button>
+            <button onclick="display('.')" class="hmm">.</button>
+            <button onclick="display('0')">0</button>
+            <button onclick="calculate()" class="equal">=</button>
+        </div>
+    </div>
+
+
+    <script>
+        let outputscreen = document.getElementById("outputscreen");
+
+        function display(num) {
+            outputscreen.value += num;
+        }
+
+        function calculate() {
+            try {
+                outputscreen.value = eval(outputscreen.value);
+            }
+            catch (err) {
+                alert("invalid");
+            }
+        }
+
+        function clearScreen() {
+            outputscreen.value = "";
+        }
+
+        function del() {
+            outputscreen.value = outputscreen.value.slice(0, -1);
+        }
+    </script>
+</body>
+
+</html>
