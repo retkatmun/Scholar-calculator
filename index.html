@@ -38,30 +38,36 @@
             <button onclick="calculate()" class="equal">=</button>
         </div>
 
-    <script>
-        let outputscreen = document.getElementById("outputscreen");
-
-        function display(num) {
-            outputscreen.value += num;
-        }
-
-        function calculate() {
-            try {
-                outputscreen.value = eval(outputscreen.value);
+        <script>
+            let outputscreen = document.getElementById("outputscreen");
+    
+            function display(num) {
+                outputscreen.value += num;
             }
-            catch (err) {
-                alert("invalid");
+    
+            function calculate() {
+                try {
+                    // Check for division by 0
+                    if (outputscreen.value.includes("/0")) {
+                        alert("Error.");
+                        clearScreen();
+                    } else {
+                        outputscreen.value = eval(outputscreen.value);
+                    }
+                } catch (err) {
+                    alert("Invalid input");
+                    clearScreen();
+                }
             }
-        }
-
-        function clearScreen() {
-            outputscreen.value = "";
-        }
-
-        function del() {
-            outputscreen.value = outputscreen.value.slice(0, -1);
-        }
-    </script>
+    
+            function clearScreen() {
+                outputscreen.value = "";
+            }
+    
+            function del() {
+                outputscreen.value = outputscreen.value.slice(0, -1);
+            }
+        </script>
 </body>
 
 </html>
